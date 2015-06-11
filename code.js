@@ -10,7 +10,7 @@ var counter = {
 
 var counters = {};
 
-var groups;
+var groups = [];
 
 function randomName() {
     var name = "";
