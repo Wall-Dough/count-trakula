@@ -14,17 +14,17 @@ var groups;
 
 function randomName() {
     var name = "";
-    for (var j = 0; j < 5) {
+    for (var j = 0; j < 5; j++) {
         name += String.fromCharCode(97 + Math.floor(Math.random() * 26));
     }
     return name;
 }
 
-for (var i = 0; i < 5) {
+for (var i = 0; i < 5; i++) {
     groups.push(randomName());
 }
 
-for (var i = 0; i < 100) {
+for (var i = 0; i < 100; i++) {
     var counter = {};
     counter["name"] = randomName();
     counter["id"] = i;
