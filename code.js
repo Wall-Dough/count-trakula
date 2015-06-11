@@ -1,6 +1,48 @@
-var counters = [{"name": "abcdefg", "id": 0, "value": 0, "slug": "test1"}, {"name": "Foo Bar","id":1,"value":0,"slug":"test2"},{"name":"Change CSS","id":2,"value":0,"slug":"test3"},{"name":"Short Round","id":3,"value":0,"slug":"test4"},{"name":"Staples","id":4,"value":0,"slug":"test5"},{"name":"camelCase","id":5,"value":0,"slug":"test6"}];
+/*
+var counter = {
+    name: "Counter Name",
+    id: 10,
+    value: 0,
+    slug: "counterslug",
+    groups: ["group1", "group2"]
+    };
+*/
+
+var counters = {};
+
+var groups;
+
+function randomName() {
+    var name = "";
+    for (var j = 0; j < 5) {
+        name += String.fromCharCode(97 + Math.floor(Math.random() * 26));
+    }
+    return name;
+}
+
+for (var i = 0; i < 5) {
+    groups.push(randomName());
+}
+
+for (var i = 0; i < 100) {
+    var counter = {};
+    counter["name"] = randomName();
+    counter["id"] = i;
+    counter["value"] = 0;
+    counter["slug"] = "test" + i.toString();
+    counter["groups"] = [];
+    if (Math.random() < 0.5) {
+        counter["groups"].push(groups[Math.floor(Math.random() * groups.length)]);
+        if (Math.random() < 0.1) {
+            counter["groups"].push(groups[Math.floor(Math.random() * groups.length)]);
+        }
+    }
+    counters.push(counter);
+}
+
 
 var lookup;
+var trie;
 
 function createLookup(toIndex) {
 	var lookup = {};
