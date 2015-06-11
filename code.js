@@ -8,7 +8,7 @@ var counter = {
     };
 */
 
-var counters = {};
+var counters = [];
 
 var groups = [];
 
