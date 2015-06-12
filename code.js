@@ -160,6 +160,10 @@ function updateFilter() {
 	loadCounters(filtered);
 }
 
+function filterGroup(group) {
+    loadCounters(groups[group]);
+}
+
 function loadCounters(toLoad) {
 	var counterTable = document.getElementById("counter-table");
 	counterTable.innerHTML = "";
@@ -228,9 +232,15 @@ function loadCounters(toLoad) {
         // Groups list
         var groupsList = document.createElement("td");
         for (var j = 0; j < toLoad[i].groups.length; j++) {
-            groupsList.innerHTML += toLoad[i].groups[j] + ", ";
+            if (j > 0) {
+                groupsList.innerHTML += ", ";
+            }
+            var groupLink = document.createElement("a");
+            groupLink.setAttribute("href", "javascript: void(0);");
+            groupLink.setAttribute("onclick", 'filterGroup("' + toLoad[i].groups[j] + '")');
+            groupLink.innerHTML += toLoad[i].groups[j];
+            groupsList.appendChild(groupLink);
         }
-        groupsList.innerHTML = groupsList.innerHTML.substring(0, groupsList.innerHTML.length - 2);
         counterRow.appendChild(groupsList);
 		counterTable.appendChild(counterRow);
 	}
