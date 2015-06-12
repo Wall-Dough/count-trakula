@@ -55,7 +55,6 @@ function createLookup(toIndex) {
 function indexGroups(toIndex) {
     var groups = {};
     for (var i = 0; i < toIndex.length; i++) {
-        groups[] = [];
         for (var j = 0; j < toIndex[i]["groups"].length; j++) {
             if (groups[toIndex[i]["groups"][j]] == null) {
                 groups[toIndex[i]["groups"][j]] = [];
