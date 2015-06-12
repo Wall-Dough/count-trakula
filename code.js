@@ -225,6 +225,13 @@ function loadCounters(toLoad) {
 		valueSetSubmit.addEventListener("click", setValue);
 		valueSetCell.appendChild(valueSetSubmit);
 		counterRow.appendChild(valueSetCell);
+        // Groups list
+        var groupsList = document.createElement("td");
+        for (var j = 0; j < toLoad[i].groups.length; j++) {
+            groupsList.innerHTML += toLoad[i].groups[j] + ", ";
+        }
+        groupsList.innerHTML = groupsList.innerHTML.substring(0, groupsList.innerHTML.length - 2);
+        counterRow.appendChild(groupsList);
 		counterTable.appendChild(counterRow);
 	}
 }
