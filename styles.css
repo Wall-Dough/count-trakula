@@ -11,10 +11,3 @@ body {
 	display: block;
 	margin: 5px 0px;
 }
-
-a {
-  text-decoration: none;
-  margin: 0 5px;
-  font-size: 20px;
-  color: black;
-}
