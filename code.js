@@ -52,6 +52,20 @@ function createLookup(toIndex) {
 	return lookup;
 }
 
+function indexGroups(toIndex) {
+    var groups = {};
+    for (var i = 0; i < toIndex.length; i++) {
+        groups[] = [];
+        for (var j = 0; j < toIndex[i]["groups"].length; j++) {
+            if (groups[toIndex[i]["groups"][j]] == null) {
+                groups[toIndex[i]["groups"][j]] = [];
+            }
+            groups[toIndex[i]["groups"][j]].push(toIndex[i]);
+        }
+    }
+    return groups;
+}
+
 function addToTrie(counter, trie, position) {
 	if (position >= counter.name.length) {
 		return;
@@ -219,5 +233,6 @@ function loadCounters(toLoad) {
 window.onload = function () {
 	lookup = createLookup(counters);
 	trie = createTrie(counters);
+    groups = indexGroups(counters);
 	loadCounters(counters);
 }
